@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111230210806) do
+ActiveRecord::Schema.define(:version => 20111231183545) do
 
   create_table "players", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(:version => 20111230210806) do
   create_table "rounds", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "name"
+    t.string   "encrypted_password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "salt"
   end
 
 end
