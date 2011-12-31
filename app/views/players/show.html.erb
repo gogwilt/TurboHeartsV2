@@ -3,8 +3,22 @@
 <p>
   <b>Name:</b>
   <%= @player.name %>
+  <br/><b>Winnings: </b>
+  <%= @player.winnings %>
+  <br/><b>Recent rounds: </b>
+  <br/>
+  <table>
+    <% @recent_rounds.each do |round| %>
+    <tr>
+      <% round.points_sorted.each do |point| %>
+      <td>
+      <%= link_to point.player.name, point.player %> : <%= point.value %> : <%= point.dollar_value%>
+      </td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
 </p>
-
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>

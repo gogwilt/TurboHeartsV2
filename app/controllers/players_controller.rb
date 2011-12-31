@@ -14,6 +14,7 @@ class PlayersController < ApplicationController
   # GET /players/1.json
   def show
     @player = Player.find(params[:id])
+    @recent_rounds = @player.rounds.limit(40).order('created_at DESC')
 
     respond_to do |format|
       format.html # show.html.erb

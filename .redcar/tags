@@ -1,4 +1,4 @@
-1325280243
+1325354919
 AddValueToPoints	C:/Sites/turbohearts/db/migrate/20111230203426_add_value_to_points.rb	class AddValueToPoints 
 Application	C:/Sites/turbohearts/config/application.rb	  class Application 
 ApplicationController	C:/Sites/turbohearts/app/controllers/application_controller.rb	class ApplicationController 
@@ -25,9 +25,12 @@ change	C:/Sites/turbohearts/db/migrate/20111230210644_create_rounds.rb	  def cha
 change	C:/Sites/turbohearts/db/migrate/20111230210806_create_players.rb	  def change
 create	C:/Sites/turbohearts/app/controllers/players_controller.rb	  def create
 destroy	C:/Sites/turbohearts/app/controllers/players_controller.rb	  def destroy
+dollar_value	C:/Sites/turbohearts/app/models/point.rb	  def dollar_value
 edit	C:/Sites/turbohearts/app/controllers/players_controller.rb	  def edit
 index	C:/Sites/turbohearts/app/controllers/players_controller.rb	  def index
 new	C:/Sites/turbohearts/app/controllers/players_controller.rb	  def new
+points_sorted	C:/Sites/turbohearts/app/models/round.rb	  def points_sorted
 show	C:/Sites/turbohearts/app/controllers/players_controller.rb	  def show
 test_homepage	C:/Sites/turbohearts/test/performance/browsing_test.rb	  def test_homepage
 update	C:/Sites/turbohearts/app/controllers/players_controller.rb	  def update
+winnings	C:/Sites/turbohearts/app/models/player.rb	  def winnings
