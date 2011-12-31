@@ -1,4 +1,6 @@
 class Player < ActiveRecord::Base
+  attr_accessible :name
+  
   has_many :points
   has_many :rounds, :through => :points
   

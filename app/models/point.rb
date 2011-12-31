@@ -1,4 +1,6 @@
 class Point < ActiveRecord::Base
+  attr_accessible :round, :player
+  
   belongs_to :round
   belongs_to :player
   
