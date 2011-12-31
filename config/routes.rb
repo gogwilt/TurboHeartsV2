@@ -1,8 +1,14 @@
 Turbohearts::Application.routes.draw do
+  get "sessions/new"
+
   resources :players
   
-  match 'signup' => 'users#new'
-  resources :users
+  resources :users, :only => [:new, :create, :show]
+  match '/signup' => 'users#new', :as => 'signup'
+  
+  resources :sessions, :only => [:new, :create, :destroy]
+  match '/signin' => 'sessions#new', :as => 'signin'
+  match '/signout' => 'sessions#destroy', :as => 'signout'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
