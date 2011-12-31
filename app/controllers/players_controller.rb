@@ -15,6 +15,7 @@ class PlayersController < ApplicationController
   def show
     @player = Player.find(params[:id])
     @recent_rounds = @player.rounds.limit(40).order('created_at DESC')
+    @bolded_player = @player
 
     respond_to do |format|
       format.html # show.html.erb

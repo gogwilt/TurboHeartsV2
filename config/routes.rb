@@ -3,8 +3,9 @@ Turbohearts::Application.routes.draw do
 
   resources :players
   
-  resources :users, :only => [:new, :create, :show]
+  resources :users, :only => [:new, :create, :index]
   match '/signup' => 'users#new', :as => 'signup'
+  match '/dashboard' => 'users#index', :as => 'dashboard'
   
   resources :sessions, :only => [:new, :create, :destroy]
   match '/signin' => 'sessions#new', :as => 'signin'

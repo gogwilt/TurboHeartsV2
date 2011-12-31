@@ -7,6 +7,10 @@ class Player < ActiveRecord::Base
   
   validates_presence_of :name
   
+  def display_name
+    user.nil? ? self.name : user.name
+  end
+  
   def winnings
     self.points.inject(0) {|cumulative, point| cumulative + point.dollar_value}
   end

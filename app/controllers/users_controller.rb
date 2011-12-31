@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
-  def show
-    @user = User.find(params[:id])
+  def index
+    @user = current_user
     
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
+      if signed_in?
+        format.html # index.html.erb
+        format.json { render json: @user }
+      else
+        format.html { redirect_to signin_path }
+      end
     end
   end
 
