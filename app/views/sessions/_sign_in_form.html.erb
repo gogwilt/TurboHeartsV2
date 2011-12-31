@@ -1,0 +1,19 @@
+<%= form_for(:session, :url => sessions_path) do |f| %>
+<dl class = "sign-in-form">
+  <dt class="field">
+    <%= f.label :email %>
+  </dt>
+  <dd>
+    <%= f.text_field :email %>
+  </dd>
+  <dt class="field">
+    <%= f.label :password %>
+  </dt>
+  <dd>
+    <%= f.password_field :password %>
+  </dd>
+</dl>
+<div class="actions">
+  <%= f.submit "Sign in" %>
+</div>
+<% end %>

@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+  # display the dashboard
   def index
     @user = current_user
-    
+    @player = @user.has_attribute?("player") ? @user.player : nil
+    @recent_rounds = @player.nil? ? [] : @player.rounds.limit(10).order('created_at DESC')
     respond_to do |format|
       if signed_in?
         format.html # index.html.erb

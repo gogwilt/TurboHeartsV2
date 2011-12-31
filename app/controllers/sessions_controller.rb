@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    @do_not_show_sign_in_info = true
   end
   
   def create
@@ -7,6 +8,7 @@ class SessionsController < ApplicationController
                            params[:session][:password])
     if user.nil?
       flash.now[:error] = "Invalid email/password combination."
+      @do_not_show_sign_in_info = true
       render 'new'
     else
       sign_in user

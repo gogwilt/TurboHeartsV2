@@ -1,4 +1,4 @@
-<% @bolded_player ||= current_user.player %>
+<% @bolded_player ||= current_user.has_attribute?("player") ? current_user.player : nil %>
 <% abs_max = absolute_maximum_dollar_value @recent_rounds%>
 <table class="game-score">
   <% @recent_rounds.each do |round| %>

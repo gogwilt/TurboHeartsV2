@@ -9,3 +9,18 @@
 span.bolded-player {
   font-weight:bold;
 }
+
+div#login {
+  font-size:8pt;
+  float:right;
+  width:300px;
+}
+
+div#login div.mini-login .sign-in-form dt {
+  float:left;
+}
+
+div#login div.mini-login .sign-in-form dd {
+  width:200px;
+  align:right;
+}
