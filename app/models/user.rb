@@ -1,15 +1,20 @@
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :email, :password, :password_confirmation
   
-  has_one :player
+  belongs_to :player
   
   validates :password, :presence => true,
                        :confirmation => true
   validates_presence_of :name
   validates_presence_of :email
+  validates_presence_of :player
   
   before_save :encrypt_password
+  
+  def name
+    self.player.name
+  end
   
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)

@@ -5,6 +5,8 @@
   <%= @user.email %>
   <br/><b>Name: </b>
   <%= @user.name %>
+  <br/><b>Winnings: </b>
+  <%= with_dollar_sign @user.player.winnings %>
 </p>
 
 <p><b>Recent games:</b>

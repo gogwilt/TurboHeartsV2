@@ -4,7 +4,7 @@
   <b>Name:</b>
   <%= @player.name %>
   <br/><b>Winnings: </b>
-  <%= @player.winnings %>
+  <%= with_dollar_sign @player.winnings %>
   <br/><b>Recent rounds: </b>
   <br/>
   <%= render 'shared/game_score_table' %>

@@ -13,9 +13,9 @@ namespace :db do
         point.save
       end
     end
-    user = User.create(:name => 'CG', :email => 'gogwilt@gmail.com', :password => 'pass', :password_confirmation => 'pass')
+    user = User.new(:email => 'gogwilt@gmail.com', :password => 'pass', :password_confirmation => 'pass')
     player = Player.find(2)
-    player.user = user
-    player.save
+    user.player = player
+    user.save
   end
 end

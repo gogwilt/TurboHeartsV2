@@ -3,13 +3,9 @@ class Player < ActiveRecord::Base
   
   has_many :points
   has_many :rounds, :through => :points
-  belongs_to :user
+  has_one :user
   
   validates_presence_of :name
-  
-  def display_name
-    user.nil? ? self.name : user.name
-  end
   
   def winnings
     self.points.inject(0) {|cumulative, point| cumulative + point.dollar_value}

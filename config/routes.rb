@@ -10,6 +10,8 @@ Turbohearts::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   match '/signin' => 'sessions#new', :as => 'signin'
   match '/signout' => 'sessions#destroy', :as => 'signout'
+  
+  match '/new_round' => 'users#new_round', :via => "post"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
