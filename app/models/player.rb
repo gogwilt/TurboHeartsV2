@@ -28,4 +28,20 @@ class Player < ActiveRecord::Base
   def direct_opponents
     self.rounds.map{|round| round.players}.flatten.uniq
   end
+  
+  def winnings_against_opponent(opponent)
+    if opponent == self
+      return 0
+    end
+    winnings = 0
+    self.rounds.each do |round|
+      my_points = round.points.find_by_player_id(self.id)
+      round.points.each do |point|
+        if point.player == opponent
+          winnings += point.value - my_points.value
+        end
+      end
+    end
+    winnings
+  end
 end

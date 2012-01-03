@@ -1,0 +1,17 @@
+
+<table>
+  <tr>
+    <td/>
+    <% @league_players.each do |player| %>
+    <td><b><%= player.name %></b></td>
+    <% end %>
+  </tr>
+  <% @league_players.each do |player| %>
+  <tr>
+    <td><b><%= player.name %></b></td>
+    <% @league_players.each do |opponent| %>
+    <td> <%= with_dollar_sign(player.winnings_against_opponent opponent) %> </td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>
