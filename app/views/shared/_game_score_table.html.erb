@@ -1,9 +1,9 @@
 <% @bolded_player ||= current_user.player %>
-<% abs_max = absolute_maximum_dollar_value @recent_rounds%>
+<% @abs_max = absolute_maximum_dollar_value @recent_rounds%>
 <table class="game-score">
   <% if @show_form_for_points %>
-  <tr>
-    <%= form_tag( '/new_round', :method => "post" ) do %>
+  <tr class = "score-entry">
+    <%= form_tag( '/new_round', :method => "post", :remote => true ) do %>
       <% (1..4).each do |i| %>
       <td>
         <table class="score-entry">
@@ -18,29 +18,7 @@
   <% end %>
   
   <% @recent_rounds.each do |round| %>
-  <tr>
-    <% round.points_sorted.each do |point| %>
-    <td>
-      <table class="player-score">
-        <tr>
-          <td colspan = "2">
-            <%= @bolded_player == point.player ? '<span class="bolded-player">'.html_safe : nil %>
-            <%= link_to point.player.name, point.player %>
-            <%= @bolded_player == point.player ? '</span>'.html_safe : nil %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <%= point.value %>
-          </td>
-          <td bgcolor="<%= color_for_dollar_value point, abs_max %>">
-            <%= with_dollar_sign point.dollar_value %>
-          </td>
-        </tr>
-      </table>
-    </td>
-    <% end %>
-    <td/>
-  </tr>
+  <% @round = round %>
+  <%= render 'shared/round_score_table_row' %>
   <% end %>
 </table>

@@ -1,0 +1,24 @@
+ <tr>
+    <% @round.points_sorted.each do |point| %>
+    <td>
+      <table class="player-score">
+        <tr>
+          <td colspan = "2">
+            <%= @bolded_player == point.player ? '<span class="bolded-player">'.html_safe : nil %>
+            <%= link_to point.player.name, point.player %>
+            <%= @bolded_player == point.player ? '</span>'.html_safe : nil %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= point.value %>
+          </td>
+          <td bgcolor="<%= color_for_dollar_value point, @abs_max %>">
+            <%= with_dollar_sign point.dollar_value %>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <% end %>
+    <td/>
+  </tr>

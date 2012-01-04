@@ -10,6 +10,6 @@ class Point < ActiveRecord::Base
   
   def dollar_value
     total_points = self.round.points.inject(0) {|cumulative, point| cumulative + point.value}
-    total_points - self.value * 5
+    total_points - self.value * 4
   end
 end

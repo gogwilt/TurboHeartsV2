@@ -1,0 +1,8 @@
+"<%= @abs_max = (@round.points.map{|p| p.dollar_value.abs} << 1).max %>"
+var row = $("<%= escape_javascript render('shared/round_score_table_row') %>");
+
+$("tr.score-entry").after(
+  row
+);
+row.hide();
+row.show(1000);

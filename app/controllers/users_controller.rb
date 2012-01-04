@@ -54,9 +54,13 @@ class UsersController < ApplicationController
       point.save    
     end
     
+    @bolded_player = current_user.player
+    @round = round
+    
     respond_to do |format|
       format.html { redirect_to dashboard_path }
       format.json { render :json => round }
+      format.js
     end
   end
   
