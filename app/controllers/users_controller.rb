@@ -7,7 +7,6 @@ class UsersController < ApplicationController
         @player = @user.player
         @show_form_for_points = true
         @league_players = @player.players_in_clique
-        puts @league_players
         @recent_rounds = @player.nil? ? [] : @player.rounds.limit(10).order('created_at DESC')
         format.html # index.html.erb
       else

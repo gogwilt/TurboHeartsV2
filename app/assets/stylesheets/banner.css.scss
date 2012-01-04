@@ -1,0 +1,72 @@
+#banner {
+  width:100%;
+  min-width:700px;
+  background-color:#eeeeee;
+
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+
+#content {
+  padding-top:70px;
+}
+
+img.logo {
+  padding:10px;
+}
+
+#signin-info {
+  float:right;
+}
+
+#signin-info .toolbar-button {
+  padding:4px;
+  margin:4px;
+  background-color:#aaaaaa;
+
+  position:relative;
+  top:20px;
+}
+
+#options-dropdown {
+  display:inline;
+}
+
+#options-dropdown ul {
+  list-style:none;
+  position:absolute;
+  right:0px;
+  top:30px;
+  padding:10px;
+  background-color:#dddddd;
+
+  display:block;
+}
+
+#options-dropdown-button:hover + #options-dropdown ul {
+  display:block;
+}
+
+div.mini-login .sign-in-form {
+  float:left;
+  padding:0px;
+
+  * {
+    float:left;
+    padding:4px;
+    margin:0px;
+  }
+
+  dd * {
+    width:100px;
+  }
+}
+
+div.mini-login .actions {
+  display:inline;
+  * {
+    margin-top:20px;
+    margin-left:8px;
+  }
+}

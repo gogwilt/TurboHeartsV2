@@ -9,18 +9,14 @@
 <body>
 
 <% unless @do_not_show_sign_in_info %>
-  <div id = "login">
-    <% if signed_in? %>
-    <p>Welcome, <%= link_to current_user.name, dashboard_path %></p>
-    <p><%= link_to "Sign out", signout_path, :method => :delete %></p>
-    <% else %>
-    <p>Sign in:</p>
-    <div class = "mini-login"> <%= render 'sessions/sign_in_form' %> </div>
-    <% end %>
-  </div>
+<div id = "banner">
+  <%= render 'shared/banner' %>
+</div>
 <% end %>
 
+<div id="content">
 <%= yield %>
+</div>
 
 </body>
 </html>
