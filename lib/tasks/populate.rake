@@ -15,6 +15,8 @@ namespace :db do
     end
     user = User.new(:email => 'gogwilt@gmail.com', :password => 'pass', :password_confirmation => 'pass')
     player = Player.find(2)
+    league = League.create(:name => "My League", :description => "A league made up of people you have played and who have played each other.", :all_players => true)
+    league.players << player
     user.player = player
     user.save
   end

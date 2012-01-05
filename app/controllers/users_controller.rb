@@ -75,7 +75,7 @@ class UsersController < ApplicationController
   end
   
   def create_default_league_for_player(player)
-    league = League.create(:name => "My League", :description => "A league made", :all_players => true)
+    league = League.create(:name => "My League", :description => "A league made up of people you have played and who have played each other.", :all_players => true)
     league.players << player
   end
 end
