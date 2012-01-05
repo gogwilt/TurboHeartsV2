@@ -1,6 +1,6 @@
 
 <ol>
-  <% @league_players.sort_by{|p| p.winnings}.reverse.each do |player| %>
+  <% @league.get_players.sort_by{|p| p.winnings}.reverse.each do |player| %>
   <li> <%= player.name %> : <%= with_dollar_sign player.winnings %> </li>
   <% end %>
 </ol>

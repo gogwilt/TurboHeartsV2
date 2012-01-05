@@ -6,7 +6,7 @@ class UsersController < ApplicationController
         @user = current_user
         @player = @user.player
         @show_form_for_points = true
-        @league_players = @player.players_in_clique
+        @league = @player.leagues[0]
         @recent_rounds = @player.nil? ? [] : @player.rounds.limit(10).order('created_at DESC')
         format.html # index.html.erb
       else
@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         player.save
+        create_default_league_for_player player
         sign_in @user
         format.html { redirect_to dashboard_path, notice: 'Player was successfully created.' }
       else
@@ -71,5 +72,10 @@ class UsersController < ApplicationController
       player = Player.create(:name => player_name)
     end
     player
+  end
+  
+  def create_default_league_for_player(player)
+    league = League.create(:name => "My League", :description => "A league made", :all_players => true)
+    league.players << player
   end
 end
