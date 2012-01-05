@@ -5,6 +5,8 @@ class Player < ActiveRecord::Base
   has_many :rounds, :through => :points
   has_one :user
   
+  has_and_belongs_to_many :leagues
+  
   validates_presence_of :name
   
   def winnings
