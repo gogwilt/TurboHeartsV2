@@ -1,0 +1,22 @@
+<% random_string_token = (0..50).map{('a'..'z').to_a[rand(26)]}.join %>
+<% winnings_graph_id = "winnings_graph_#{random_string_token}"%>
+
+<div id="<%= winnings_graph_id %>" style="width:600px;height:300px"></div>
+
+<script type="text/javascript">
+<% rounds = @league.get_rounds %>
+$(function () {
+  <% @league.get_players.each do |player| %>
+  var <%= "player_#{player.id}" %> = <%= (0..(rounds.size-1)).map{|i| [i, player.winnings_until_time(rounds[i].created_at)]}.to_s %>;
+  <% end %>
+  
+  var plot = $.plot($("#<%= winnings_graph_id%>"),
+    [
+      <% @league.get_players.each do |player| %>
+      { data: <%= "player_#{player.id}" %>, label: "<%= player.name %>"},
+      <% end %>
+    ]
+  );
+  
+})
+</script>

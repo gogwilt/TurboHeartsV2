@@ -22,4 +22,25 @@ class League < ActiveRecord::Base
     end
     return the_players
   end
+  
+  def get_rounds
+    if self.all_players
+      return get_rounds_for_all_players_league
+    else
+      return nil
+    end
+  end
+  
+  private
+  def get_rounds_for_all_players_league
+    rounds = nil
+    self.get_players.each do |player|
+      if rounds.nil?
+        rounds = player.rounds
+      else
+        rounds |= player.rounds
+      end
+    end
+    return rounds
+  end
 end

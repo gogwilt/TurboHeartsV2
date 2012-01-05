@@ -4,7 +4,8 @@
   <title>Turbohearts</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "data_entry.js" %>
+  <!--[if IE]> <%= javascript_include_tag "excanvas.min" %> <![endif]-->
+  <%= javascript_include_tag "jquery.flot.min" %>
   <%= csrf_meta_tags %>
 </head>
 <body>

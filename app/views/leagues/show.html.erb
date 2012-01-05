@@ -20,6 +20,14 @@
   <%= @league.description %>
 </p>
 
+<p>
+  <b>Standings:</b>
+  <%= render 'league_standings' %>
+</p>
+
+<%= render 'winnings_graph'%>
 
 <%= link_to 'Edit', edit_league_path(@league) %> |
 <%= link_to 'Back', leagues_path %>
+
+  

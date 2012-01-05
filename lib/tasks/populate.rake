@@ -3,10 +3,11 @@ namespace :db do
   task :populate => :environment do
     names = [ 'Jess', 'Cai', 'Ryan', 'Elliot', 'Pat' ]
     players = names.map {|name| Player.create(:name => name)}
-    10.times do
-      round = Round.create
+    10.times do |i|
+      round = Round.create(:created_at => Time.now - i.days)
       players.sample(4).each do |player|
         point = Point.new
+        point.created_at = Time.now - i.days
         point.player = player
         point.round = round
         point.value = rand(80) - 40

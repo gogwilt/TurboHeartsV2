@@ -10,7 +10,15 @@ class Player < ActiveRecord::Base
   validates_presence_of :name
   
   def winnings
-    self.points.inject(0) {|cumulative, point| cumulative + point.dollar_value}
+    winnings_for_points self.points
+  end
+  
+  def winnings_until_time time
+    winnings_for_points self.points.where("created_at <= ?", time)
+  end
+  
+  def winnings_for_points points
+    points.inject(0) {|cumulative, point| cumulative + point.dollar_value}
   end
   
   def players_in_clique
