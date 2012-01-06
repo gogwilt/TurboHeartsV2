@@ -39,14 +39,17 @@ tr.score-entry-hidden {
     width:85px;
   }
   .player-score-delta {
-    width:50px;
+    width:40px;
     font-size:1.4em;
+    text-align:right;
   }
   .player-score-points {
     margin-top:5px;
-    width:40px;
+    margin-left:5px;
+    width:45px;
     font-size:.8em;
     color:#8F8F8F;
+    text-align:right;
   }
 }
 
