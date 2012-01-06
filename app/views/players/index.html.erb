@@ -18,8 +18,8 @@
     <td>
     <% @league = get_a_league_for_player player %>
     <% if @league %>
-      Currently <%= (@league.standing_of(player) + 1).ordinalize %> in league with 
-      <%= with_dollar_sign player.winnings %> in winnings. 
+    Currently <span class="special-green"><%= (@league.standing_of(player) + 1).ordinalize %> place</span> in league with 
+    <span class="<%= player.winnings >= 0 ? "special-green" : "special-red"%>"><%= with_dollar_sign player.winnings %></span> in winnings. 
     <% end %>
     </td>
     <td>Has participated in 
