@@ -14,8 +14,9 @@ class PlayersController < ApplicationController
   # GET /players/1.json
   def show
     @player = Player.find(params[:id])
-    @recent_rounds = @player.rounds.limit(40).order('created_at DESC')
+    @recent_rounds = @player.rounds.limit(10).order('created_at DESC')
     @bolded_player = @player
+    @league = get_a_league_for_player @player
 
     respond_to do |format|
       format.html # show.html.erb
@@ -81,5 +82,15 @@ class PlayersController < ApplicationController
       format.html { redirect_to players_url }
       format.json { head :ok }
     end
+  end
+  
+  private
+  def get_a_league_for_player(player)
+    League.all.each do |l|
+      if l.get_players.include? player
+        return l
+      end
+    end
+    return nil    
   end
 end

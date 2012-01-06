@@ -7,7 +7,7 @@ class UsersController < ApplicationController
         @player = @user.player
         @show_form_for_points = true
         @league = @player.leagues[0]
-        @recent_rounds = @player.nil? ? [] : @player.rounds.limit(10).order('created_at DESC')
+        @recent_rounds = @league.nil? ? [] : @league.get_rounds.sort_by{|round| round.created_at}.reverse.first(10)
         format.html # index.html.erb
       else
         format.html { redirect_to signin_path }

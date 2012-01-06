@@ -1,7 +1,10 @@
 
-<table class="gray-shiny">
+<table class="league-standings">
 <% @league.get_players.sort_by{|p| p.winnings}.reverse.each_with_index do |player, i| %>
-<tr><td><%=i+1%>. <%=  link_to player.name, player %> : <%= with_dollar_sign player.winnings %> </td></tr>
+<tr class="tk-league-gothic <%= @bold_player == player ? "highlighted-player" : nil %>">
+  <td><%=i+1%>. <%=  link_to player.name, player, {:class => 'tk-league-gothic player-name-standings'}%> 
+  </td><td class="standings-delta <%= player.winnings >= 0 ? "special-green": "special-red" %>"> <%= with_dollar_sign player.winnings %> </td>
+</tr>
 <% end %>
 </table>
 

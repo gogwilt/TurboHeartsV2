@@ -1,3 +1,25 @@
 // Place all the styles related to the Leagues controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+table.league-standings {
+  border-collapse:collapse;
+  width:100%;
+  th, td {
+    padding:10px;
+    border: 1px solid #E1E1E1;
+    border-right-width:0px;
+    border-left-width:0px;
+    font-size:1.4em;
+    
+    &.standings-delta {
+      text-align:right;
+    }
+    
+    .player-name-standings {
+      font-size:1.1em;
+      text-transform:uppercase;
+    }
+  }
+}

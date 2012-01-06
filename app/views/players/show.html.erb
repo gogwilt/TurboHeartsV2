@@ -1,14 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @player.name %>
-  <br/><b>Winnings: </b>
-  <%= with_dollar_sign @player.winnings %>
-  <br/><b>Recent rounds: </b>
-  <br/>
-  <%= render 'shared/game_score_table' %>
-</p>
+<div class="grid_6">
+  <p id="notice"><%= notice %></p>
+  <h1 id="user-name"><%= @player.name %></h1>
+  <% unless @league.nil?%>
+  <p id="league-standings-summary"><%= @player.name %> is currently in 
+    <span class="special-green">
+    <%= (@league.standing_of(@player)+1).ordinalize %> place
+    </span>
+    with
+    <span class="<%=@player.winnings >= 0 ? "special-green" : "special-red"%>">
+      <%= with_dollar_sign @player.winnings %>!
+    </span>
+  </p>
+  <% end %>
+</div>
 
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+<div class="clear"></div>
+
+<div class="grid_12">
+  <h2 class="component-heading"><%= image_tag "glyphicons_032_wifi_alt.png" %><%= @player.name %>'s recent games</h2>
+  <%= render 'shared/game_score_table' %>
+</div>
+
+<div class="clear"></div>
+
+<% unless @league.nil?%>
+<div class="grid_6">
+  <h2 class="component-heading"><%= image_tag "glyphicons_289_podium.png" %>League standings</h2>
+  <%= render 'leagues/league_standings'%>
+</div>
+
+<div class="grid_6">
+  <h2 class="component-heading"><%= image_tag "glyphicons_040_stats.png" %>Winnings chart</h2>
+  <%= render 'leagues/winnings_graph'%>
+</div>
+<% end %>
