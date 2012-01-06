@@ -11,7 +11,7 @@
 
 <div class="grid_12">
   <div id="add-round-button"><%=  %>
-    <%= link_to((image_tag("green-plus.png") + "<span>Add a Game</span>".html_safe), "javascript:show_add_round()") %>
+    <%= link_to((image_tag("green-plus.png") + "<span id='add-a-game-link'>Add a Game</span>".html_safe), "javascript:show_add_round()") %>
   </div>
   <h2 class="component-heading"><%= image_tag "glyphicons_032_wifi_alt.png" %>Recent games</h2>
   <%= render 'shared/game_score_table' %>

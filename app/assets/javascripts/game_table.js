@@ -1,5 +1,10 @@
 function show_add_round() {
-  $("tr.score-entry").removeClass('score-entry-hidden');
+  $("tr.score-entry").toggleClass('score-entry-hidden');
+  if ($("tr.score-entry").hasClass('score-entry-hidden')) {
+    $("#add-a-game-link").text("Add a Game");
+  } else {
+    $("#add-a-game-link").text("Hide Add a Game");
+  }
 }
 
 function hide_add_round() {
@@ -26,6 +31,6 @@ function open_player_autocomplete(i) {
 }
 
 $("document").ready(function () {
-  //hide_add_round();
+  hide_add_round();
   open_player_autocomplete(1);
 })
