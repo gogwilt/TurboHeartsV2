@@ -2,7 +2,7 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
-    @players = Player.all
+    @players = Player.search(params[:search])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -12,6 +12,7 @@
   </div>
 
   <div id="right-banner-info">
+    <%= render 'players/search_form' %>
   <% if signed_in? %>
   <span class="logout-link"><%= link_to "Logout", signout_path, :method => :delete %></span>
   <% else %>

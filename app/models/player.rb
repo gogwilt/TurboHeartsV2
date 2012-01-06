@@ -9,6 +9,14 @@ class Player < ActiveRecord::Base
   
   validates_presence_of :name
   
+  def self.search(search)
+    if search
+      return Player.find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    else
+      return Player.all
+    end
+  end
+  
   def winnings
     winnings_for_points self.points
   end
