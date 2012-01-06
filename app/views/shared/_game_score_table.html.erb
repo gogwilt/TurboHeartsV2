@@ -1,6 +1,6 @@
 <% @bolded_player ||= current_user.player %>
 <% @abs_max = absolute_maximum_dollar_value @recent_rounds%>
-<table class="game-score">
+<table class="game-score gray-shiny">
   <% if @show_form_for_points %>
   <tr class = "score-entry">
     <%= form_tag( '/new_round', :method => "post", :remote => true ) do %>

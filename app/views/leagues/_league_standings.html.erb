@@ -1,6 +1,7 @@
 
-<ol>
-  <% @league.get_players.sort_by{|p| p.winnings}.reverse.each do |player| %>
-  <li> <%=  link_to player.name, player %> : <%= with_dollar_sign player.winnings %> </li>
-  <% end %>
-</ol>
+<table class="gray-shiny">
+<% @league.get_players.sort_by{|p| p.winnings}.reverse.each_with_index do |player, i| %>
+<tr><td><%=i%>. <%=  link_to player.name, player %> : <%= with_dollar_sign player.winnings %> </td></tr>
+<% end %>
+</table>
+

@@ -31,6 +31,10 @@ class League < ActiveRecord::Base
     end
   end
   
+  def standing_of(player)
+    get_players.sort_by{|p| p.winnings}.reverse.index(player)
+  end
+  
   private
   def get_rounds_for_all_players_league
     rounds = nil

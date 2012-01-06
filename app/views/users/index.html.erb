@@ -2,8 +2,15 @@
   <p id="notice"><%= notice %></p>
   <h1 id="user-name">Welcome back, <%= @user.name %></h1>
   <span id="view-profile-link"><%= link_to "View my profile >>", @user.player %></span>
-  <p id="league-standings-summary">You are currently in a place with
-    <%= with_dollar_sign @user.player.winnings %> in your league!
+  <p id="league-standings-summary">You are currently in 
+    <span class="special-green">
+      <%= (@user.player.leagues[0].standing_of(@user.player)+1).ordinalize %> place
+    </span>
+    with
+    <span class="<%=@user.player.winnings >= 0 ? "special-green" : "special-red"%>">
+      <%= with_dollar_sign @user.player.winnings %>
+    </span> 
+    in your league!
   </p>
 </div>
 
