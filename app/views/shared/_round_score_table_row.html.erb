@@ -1,23 +1,20 @@
  <tr>
-    <% @round.points_sorted.each do |point| %>
     <td>
-      <table class="player-score">
-        <tr>
-          <td colspan = "2">
-            <%= @bolded_player == point.player ? '<span class="bolded-player">'.html_safe : nil %>
-            <%= link_to point.player.name, point.player %>
-            <%= @bolded_player == point.player ? '</span>'.html_safe : nil %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <%= point.value %>
-          </td>
-          <td bgcolor="<%= color_for_dollar_value point, @abs_max %>">
-            <%= with_dollar_sign point.dollar_value %>
-          </td>
-        </tr>
-      </table>
+      <%= @round.created_at.strftime("%m/%d") %>
+    </td>
+    <% @round.points_sorted.each do |point| %>
+    <td class="player-score-cell <%= @bolded_player == point.player ? "player-score-highlighted" : nil %>">
+      <div class="player-score-indicator" bgcolor="<%= color_for_dollar_value point, @abs_max %>">
+      </div>
+      <div class="player-score-name">
+        <%= link_to point.player.name, point.player %>
+      </div>
+      <div class="player-score-delta tk-league-gothic">
+        <%= with_dollar_sign point.dollar_value %>
+      </div>
+      <div class="player-score-points">
+        <%= point.value %>pts
+      </div>
     </td>
     <% end %>
     <td/>

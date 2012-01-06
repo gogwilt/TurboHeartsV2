@@ -1,20 +1,21 @@
+<div class="container_12">
+  <div class="grid_3">
   <%= link_to image_tag("logo.png", :alt => 'TurboHearts', :class => 'logo'), dashboard_path %>
+  </div>
   
-  <div id="signin-info">
-    <% if signed_in? %>
-    <span class="toolbar-button"><%= link_to current_user.name, dashboard_path %></span>
-    <span id="options-dropdown-button" class="toolbar-button">Options</span>
-    <div id="options-dropdown">
-      <ul>
-        <li><%= link_to "View dashboard", dashboard_path %></li>
-        <li><%= link_to "View profile", current_user.player %></li>
-        <li>Edit profile</li>
-        <li>
-          <%= link_to "Sign out", signout_path, :method => :delete %></p>
-        </li>
-      </ul>
-    </div>
-    <% else %>
-    <div class = "mini-login"> <%= render 'sessions/sign_in_form' %> </div>
-    <% end %>
+  <div id="toolbar-buttons" class="grid_4">
+  <% if signed_in? %>
+  <span class="toolbar-button" id="dashboard-toolbar-button"><%= link_to "Dashboard", dashboard_path %></span>
+  <span class="toolbar-button" id="league-toolbar-button"><%= link_to "League", current_user.player.leagues[0] %></span>
+  <span class="toolbar-button" id="profile-toolbar-button"><%= link_to "Profile", current_user.player %></span>
+  <% end %>
+  </div>
+
+  <div id="right-banner-info">
+  <% if signed_in? %>
+  <span class="logout-link"><%= link_to "Logout", signout_path, :method => :delete %></span>
+  <% else %>
+        <div class = "mini-login"> <%= render 'sessions/sign_in_form' %> </div>
+  <% end %>
   </div>  
+</div>

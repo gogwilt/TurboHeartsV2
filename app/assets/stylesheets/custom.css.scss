@@ -1,0 +1,30 @@
+body {
+  background-image:url('banner_background.png');
+  background-repeat:repeat-x;
+  background-color:#fff;
+}
+
+* {
+  font-size:17px;
+}
+
+h1, h2, h3, h4 {
+  text-transform:uppercase;
+  font-weight:normal;
+}
+
+h1 {
+  font-size:2.9em;
+}
+
+h2 {
+  font-size:1.3em;
+}
+
+a {
+  color: #666;
+  &:visited {
+    color: #666; }
+  &:hover {
+    color: #999;
+  } }

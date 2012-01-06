@@ -4,23 +4,27 @@
   <title>Turbohearts</title>
   <%= stylesheet_link_tag    "application" %>
   <%= stylesheet_link_tag    "jquery-ui-1.8.16.custom" %>
+  <%= stylesheet_link_tag    "960" %>
   <%= javascript_include_tag "application" %>
   <!--[if IE]> <%= javascript_include_tag "excanvas.min" %> <![endif]-->
   <%= javascript_include_tag "jquery.flot.min" %>
   <%= javascript_include_tag "jquery-ui-1.8.16.custom.min" %>
   <%= csrf_meta_tags %>
+  
+  <script type="text/javascript" src="http://use.typekit.com/cfk8myz.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
 
 <% unless @do_not_show_sign_in_info %>
-<div id = "banner">
+<header id = "banner">
   <%= render 'shared/banner' %>
-</div>
+</header>
 <% end %>
 
-<div id="content">
+<section id="content" class="container_12">
 <%= yield %>
-</div>
+</section>
 
 </body>
 </html>

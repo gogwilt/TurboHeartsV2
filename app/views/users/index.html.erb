@@ -1,22 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="grid_6">
+  <p id="notice"><%= notice %></p>
+  <h1 id="user-name">Welcome back, <%= @user.name %></h1>
+  <span id="view-profile-link"><%= link_to "View my profile >>", @user.player %></span>
+  <p id="league-standings-summary">You are currently in a place with
+    <%= with_dollar_sign @user.player.winnings %> in your league!
+  </p>
+</div>
 
-<p>
-  <b>User:</b>
-  <%= @user.email %>
-  <br/><b>Name: </b>
-  <%= @user.name %>
-  <br/><b>Winnings: </b>
-  <%= with_dollar_sign @user.player.winnings %>
-</p>
+<div class="clear"></div>
 
-<p><b>Recent games:</b>
+<div class="grid_12">
+  <h2 class="component-heading">Recent games</h2>
   <%= render 'shared/game_score_table' %>
-</p>
+</div>
 
-<p><b>League standings: </b>
+<div class="clear"></div>
+
+<div class="grid_6">
+  <h2 class="component-heading">League standings</h2>
   <%= render 'leagues/league_standings'%>
-  <br/><b>Boss table</b>
-  <%= render 'leagues/boss_table'%>
-  <br/><b>Winnings chart</b>
+</div>
+
+<div class="grid_6">
+  <h2 class="component-heading">Winnings chart</h2>
   <%= render 'leagues/winnings_graph'%>
-</p>
+</div>

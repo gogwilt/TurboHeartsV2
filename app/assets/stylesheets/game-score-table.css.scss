@@ -1,0 +1,52 @@
+table.game-score {
+  border: 1px solid #E1E1E1;
+  border-left-width:0px;
+  border-bottom-width:0px;
+  th, td {
+    border: 1px solid #E1E1E1;
+    padding:10px;
+    vertical-align:middle;
+    background-color:#F2F2F2;
+    border-top-color:#fff;
+    border-right-width:0px;
+    &.player-score-highlighted {
+      background-color:#E0EEFA;
+    }
+  }
+  border-spacing:0px;
+  width:100%;
+}
+
+tr.score-entry {
+  display:none;
+}
+
+.player-score-cell {
+  width:200px;
+  div {
+    display:table-cell;
+    vertical-align:middle;
+    float:left;
+    margin-top:auto;
+    margin-bottom:auto;
+  }
+  .player-score-indicator {
+    width:10px;
+    height:10px;
+  }
+  .player-score-name {
+    margin-top:2px;
+    width:90px;
+  }
+  .player-score-delta {
+    width:50px;
+    font-size:1.4em;
+  }
+  .player-score-points {
+    margin-top:5px;
+    width:40px;
+    font-size:.8em;
+    color:#8F8F8F;
+  }
+}
+

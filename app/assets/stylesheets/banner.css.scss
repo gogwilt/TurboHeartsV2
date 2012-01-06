@@ -1,11 +1,42 @@
+body {
+  border:0;
+  margin:0;
+  padding:0;
+}
+
 #banner {
   width:100%;
-  min-width:700px;
-  background-color:#eeeeee;
-
   position:absolute;
+  z-index:100;
   top:0px;
-  left:0px;
+  margin:0;
+  height:68px;
+
+  border:0;
+  border-image: url(banner_border.png) 0 6 2 repeat;
+  -o-border-image: url(banner_border.png) 0 6 2 repeat;
+  -webkit-border-image: url(banner_border.png) 0 6 2 repeat;
+  -khtml-border-image: url(banner_border.png) 0 6 2 repeat;
+  -moz-border-image: url(banner_border.png) 0 6 2 repeat;
+  border-bottom-width: 2px;
+  
+  background-image: linear-gradient(bottom, rgb(223,234,246) 0%, rgb(192,219,244) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(223,234,246) 0%, rgb(192,219,244) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(223,234,246) 0%, rgb(192,219,244) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(223,234,246) 0%, rgb(192,219,244) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(223,234,246) 0%, rgb(192,219,244) 100%);
+
+  background-image: -webkit-gradient(
+	  linear,
+	  left bottom,
+	  left top,
+	  color-stop(0, rgb(223,234,246)),
+	  color-stop(1, rgb(192,219,244))
+  );
+}
+
+#banner > div {
+  position:relative;
 }
 
 #content {
@@ -13,39 +44,26 @@
 }
 
 img.logo {
-  padding:10px;
+  padding-top:12px;
 }
 
-#signin-info {
+#right-banner-info {
   float:right;
-}
-
-#signin-info .toolbar-button {
-  padding:4px;
-  margin:4px;
-  background-color:#aaaaaa;
-
   position:relative;
   top:20px;
 }
 
-#options-dropdown {
-  display:inline;
+.toolbar-button a {
+  text-transform:uppercase;
+  font-size:1.4em;
+  margin:10px;
+  text-decoration:none;
+  font-color:#322E2E;
 }
 
-#options-dropdown ul {
-  list-style:none;
+#toolbar-buttons {
   position:absolute;
-  right:0px;
-  top:30px;
-  padding:10px;
-  background-color:#dddddd;
-
-  display:block;
-}
-
-#options-dropdown-button:hover + #options-dropdown ul {
-  display:block;
+  top:20px;
 }
 
 div.mini-login .sign-in-form {

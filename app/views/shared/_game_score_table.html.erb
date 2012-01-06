@@ -3,6 +3,7 @@
 <table class="game-score">
   <% if @show_form_for_points %>
   <tr class = "score-entry">
+    <td/>
     <%= form_tag( '/new_round', :method => "post", :remote => true ) do %>
       <% (1..4).each do |i| %>
       <td>
@@ -26,7 +27,7 @@
 <% if @show_form_for_points %>
 <script type="text/javascript">
 $(function() {
-  var player_names = <%= current_user.player.players_in_clique.map{|player|player.name}.to_s.html_safe %>;
+  var player_names = <%= current_user.player.players_in_clique.map{|player|player.name}.to_s.html_safe %>;
 	$( ".player-autocomplete" ).autocomplete({
 		source: player_names
 	});

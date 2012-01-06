@@ -1,7 +1,7 @@
 <% random_string_token = (0..50).map{('a'..'z').to_a[rand(26)]}.join %>
 <% winnings_graph_id = "winnings_graph_#{random_string_token}"%>
 
-<div id="<%= winnings_graph_id %>" style="width:600px;height:300px"></div>
+<div id="<%= winnings_graph_id %>" style="width:100%;height:300px"></div>
 
 <script type="text/javascript">
 <% rounds = @league.get_rounds %>
