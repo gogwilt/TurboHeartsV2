@@ -7,7 +7,7 @@ module PlayersHelper
     images = ["high-red-arrows.png", "mid-red-arrows.png", "low-red-arrows.png",
               "neutral-circle.png",
               "low-green-arrows.png", "mid-green-arrows.png", "high-green-arrows.png"]
-    value = (3.0 * point.dollar_value.to_f / abs_max.to_f).to_i
+    value = (3.49 * point.dollar_value.to_f / abs_max.to_f).round
     return images[value + 3]
   end
   
