@@ -4,7 +4,8 @@
     </td>
     <% @round.points_sorted.each do |point| %>
     <td class="player-score-cell <%= @bolded_player == point.player ? "player-score-highlighted" : nil %>">
-      <div class="player-score-indicator" bgcolor="<%= color_for_dollar_value point, @abs_max %>">
+      <div class="player-score-indicator">
+        <%= image_tag image_for_dollar_value(point, @abs_max) %>
       </div>
       <div class="player-score-name">
         <%= link_to point.player.name, point.player %>
@@ -17,5 +18,4 @@
       </div>
     </td>
     <% end %>
-    <td/>
   </tr>

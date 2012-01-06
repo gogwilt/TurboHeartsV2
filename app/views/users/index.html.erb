@@ -10,18 +10,21 @@
 <div class="clear"></div>
 
 <div class="grid_12">
-  <h2 class="component-heading">Recent games</h2>
+  <div id="add-round-button"><%=  %>
+    <%= link_to((image_tag("green-plus.png") + "<span>Add a Game</span>".html_safe), "javascript:show_add_round()") %>
+  </div>
+  <h2 class="component-heading"><%= image_tag "glyphicons_032_wifi_alt.png" %>Recent games</h2>
   <%= render 'shared/game_score_table' %>
 </div>
 
 <div class="clear"></div>
 
 <div class="grid_6">
-  <h2 class="component-heading">League standings</h2>
+  <h2 class="component-heading"><%= image_tag "glyphicons_289_podium.png" %>League standings</h2>
   <%= render 'leagues/league_standings'%>
 </div>
 
 <div class="grid_6">
-  <h2 class="component-heading">Winnings chart</h2>
+  <h2 class="component-heading"><%= image_tag "glyphicons_040_stats.png" %>Winnings chart</h2>
   <%= render 'leagues/winnings_graph'%>
 </div>

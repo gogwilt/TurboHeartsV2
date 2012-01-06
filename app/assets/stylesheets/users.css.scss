@@ -9,3 +9,18 @@
 #view-profile-link * {
   font-size:.8em;
 }
+
+#add-round-button {
+  float:right;
+  margin-top:30px;
+  img {
+    margin-right:5px;
+  }
+  span {
+    display:block;
+    float:right;
+    padding-top:2px;
+    font-size:.9em;
+    text-decoration:none;
+  }
+}

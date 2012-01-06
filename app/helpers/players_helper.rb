@@ -3,6 +3,14 @@ module PlayersHelper
     (value >= 0 ? "" : "-") + "$" + value.abs.to_s
   end
   
+  def image_for_dollar_value(point, abs_max)
+    images = ["high-red-arrows.png", "mid-red-arrows.png", "low-red-arrows.png",
+              "neutral-circle.png",
+              "low-green-arrows.png", "mid-green-arrows.png", "high-green-arrows.png"]
+    value = (3.0 * point.dollar_value.to_f / abs_max.to_f).to_i
+    return images[value + 3]
+  end
+  
   def color_for_dollar_value(point, abs_max)
     dollar_value = point.dollar_value
     green = 255

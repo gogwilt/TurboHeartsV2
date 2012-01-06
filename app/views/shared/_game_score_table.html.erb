@@ -3,17 +3,13 @@
 <table class="game-score">
   <% if @show_form_for_points %>
   <tr class = "score-entry">
-    <td/>
     <%= form_tag( '/new_round', :method => "post", :remote => true ) do %>
+      <td> <%= submit_tag "Add" %> </td>
       <% (1..4).each do |i| %>
-      <td>
-        <table class="score-entry">
-          <tr><td> <%= text_field_tag "player#{i}_name".to_sym, "", {:class => 'player-autocomplete'} %> </td></tr>
-          <tr><td> <%= text_field_tag "player#{i}_score".to_sym %> </td></tr>
-        </table>
-      </td>
+        <td> <%= text_field_tag "player#{i}_name".to_sym, "", {:class => 'player-autocomplete player-name'}%> 
+        <%= link_to image_tag("grey-down-arrow.png"), "javascript:open_player_autocomplete(#{i});", {:id => "player#{i}_dropdown"} %>: 
+      <%= text_field_tag "player#{i}_score".to_sym, "", {:class => 'player-score'} %> pts</td>
       <% end %>
-    <td> <%= submit_tag "Add round" %> </td>
   <% end %>
   </tr>
   <% end %>
@@ -29,7 +25,8 @@
 $(function() {
   var player_names = <%= current_user.player.players_in_clique.map{|player|player.name}.to_s.html_safe %>;
 	$( ".player-autocomplete" ).autocomplete({
-		source: player_names
+		source: player_names,
+    delay:0
 	});
 });
 </script>
