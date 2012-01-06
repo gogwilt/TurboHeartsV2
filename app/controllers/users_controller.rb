@@ -65,6 +65,28 @@ class UsersController < ApplicationController
     end
   end
   
+  def resolve_player
+    player = Player.find(params[:id])
+    user = current_user
+    notice_message = "Linked player scores to your account."
+    if player.user
+      notice_message = "This player is already owned by a user. Failed to link the player."
+    else
+      if share_rounds_together? user.player, player
+        notice_message = "This player conflicts with some of your existing rounds. Failed to link the player."
+      else
+        player.points.each do |point|
+          point.player = user.player
+          point.save
+        end
+        player.destroy
+      end
+    end
+    respond_to do |format|
+      format.html { redirect_to dashboard_path, :notice => notice_message }
+    end
+  end
+  
   private
   def create_or_find_player_by_name(player_name)
     player = Player.find_by_name(player_name)

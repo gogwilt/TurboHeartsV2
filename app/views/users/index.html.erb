@@ -22,6 +22,11 @@
   </div>
   <h2 class="component-heading"><%= image_tag "glyphicons_032_wifi_alt.png" %>Recent games in your league</h2>
   <%= render 'shared/game_score_table' %>
+  <% if @recent_rounds.empty? %>
+  <p>You have no recent rounds to display. Get started by clicking the "Add a Game" link, 
+    or you can search for your friends to see if they have recorded any of your scores already!</p>
+    <div id="getting-started-search-tag">Search:</div><div id="getting-started-search"><%= render 'players/search_form' %></div>
+  <% end %>
 </div>
 
 <div class="clear"></div>

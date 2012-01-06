@@ -1,8 +1,14 @@
-<p id="notice"><%= notice %></p>
-
 <div class="grid_6">
   <p id="notice"><%= notice %></p>
   <h1 id="user-name"><%= @player.name %></h1>
+  <% unless current_user.nil? or @player.user or share_rounds_together? @player, current_user.player %>
+  <span id="resolve-player-link">Is this you? 
+    <%= link_to "Link this player to your account >>", "/resolve/"+@player.id.to_s, :confirm => "Are you sure? This will add the players points to yours and delete the player." %>
+  </span>
+  <% end %>
+  <% if @player.user == current_user %>
+  <span id="edit-profile-link"><%= link_to "Edit profile>>", @player %></span>
+  <% end %>
   <% unless @league.nil?%>
   <p id="league-standings-summary"><%= @player.name %> is currently in 
     <span class="special-green">
@@ -20,7 +26,11 @@
 
 <div class="grid_12">
   <h2 class="component-heading"><%= image_tag "glyphicons_032_wifi_alt.png" %><%= @player.name %>'s recent games</h2>
+  <% if @recent_rounds.empty? %>
+  <p><%= @player.name %> has no games.</p>
+  <% else %>
   <%= render 'shared/game_score_table' %>
+  <% end %>
 </div>
 
 <div class="clear"></div>

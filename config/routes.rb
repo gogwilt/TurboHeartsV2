@@ -14,6 +14,7 @@ Turbohearts::Application.routes.draw do
   match '/signout' => 'sessions#destroy', :as => 'signout'
   
   match '/new_round' => 'users#new_round', :via => "post"
+  match '/resolve/:id' => 'users#resolve_player', :via => "get"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
