@@ -1,25 +1,31 @@
+<div class="grid_6">
+<% if params[:search] %>
+<h1>Search results for "<%=params[:search]%>"</h1>
+<p>Your search returned <%=@players.size%> players.</p>
+<% else %>
 <h1>Listing players</h1>
+<% end %>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Winnings</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="clear"></div>
+
+<div class="grid_12">
+<table class = "gray-shiny">  
 
 <% @players.each do |player| %>
   <tr>
-    <td><%= player.name %></td>
-    <td><%= player.winnings %></td>
-    <td><%= link_to 'Show', player %></td>
-    <td><%= link_to 'Edit', edit_player_path(player) %></td>
-    <td><%= link_to 'Destroy', player, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to player.name, player %></td>
+    <td>
+    <% @league = get_a_league_for_player player %>
+    <% if @league %>
+      Currently <%= (@league.standing_of(player) + 1).ordinalize %> in league with 
+      <%= with_dollar_sign player.winnings %> in winnings. 
+    <% end %>
+    </td>
+    <td>Has participated in 
+      <%= pluralize player.rounds.size, "game"%>.
+    </td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Player', new_player_path %>
+</div>
