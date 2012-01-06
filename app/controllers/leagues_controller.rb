@@ -14,6 +14,7 @@ class LeaguesController < ApplicationController
   # GET /leagues/1.json
   def show
     @league = League.find(params[:id])
+    @recent_rounds = @league.get_rounds.sort_by{|round| round.created_at}.reverse.first(15)
 
     respond_to do |format|
       format.html # show.html.erb
