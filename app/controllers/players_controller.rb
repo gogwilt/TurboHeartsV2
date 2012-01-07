@@ -39,6 +39,13 @@ class PlayersController < ApplicationController
   # GET /players/1/edit
   def edit
     @player = Player.find(params[:id])
+    respond_to do |format|
+      if !current_user.nil? and current_user.player == @player
+        format.html
+      else
+        format.html { redirect_to @player, notice: 'You do not have permission to edit this player.' }
+      end
+    end
   end
 
   # POST /players

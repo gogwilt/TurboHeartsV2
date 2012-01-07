@@ -7,7 +7,7 @@
   </span>
   <% end %>
   <% if @player.user == current_user %>
-  <span id="edit-profile-link"><%= link_to "Edit profile>>", @player %></span>
+  <span id="edit-profile-link"><%= link_to "Edit profile>>", edit_player_path(@player) %></span>
   <% end %>
   <% unless @league.nil?%>
   <p id="league-standings-summary"><%= @player.name %> is currently in 
