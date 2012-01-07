@@ -1,6 +1,10 @@
 <div class="grid_8">
   <p id="notice"><%= notice %></p>
+  <% if flash[:notice] == 'Player was successfully created.' %>
+  <h1 id="user-name">Welcome, <%= @user.name %></h1>
+  <% else %>
   <h1 id="user-name">Welcome back, <%= @user.name %></h1>
+  <% end %>
   <span id="view-profile-link"><%= link_to "View my profile >>", @user.player %></span>
   <% if @user.player.leagues[0].get_players.size > 1 %>
   <p id="league-standings-summary">You are currently in 
