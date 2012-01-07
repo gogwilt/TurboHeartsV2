@@ -1,11 +1,15 @@
+<% unless current_user.nil? or @player.user or share_rounds_together? @player, current_user.player %>
+<div class="grid_12">
+  <div id="resolve-player-link"><p>Is this you? 
+    <%= link_to "Link this player to your account >>", "/resolve/"+@player.id.to_s, :confirm => "Are you sure? This will add the players points to yours and delete the player." %>
+  </p></div>
+</div>
+<div class="clear"></div>
+<% end %>
+
 <div class="grid_6">
   <p id="notice"><%= notice %></p>
   <h1 id="user-name"><%= @player.name %></h1>
-  <% unless current_user.nil? or @player.user or share_rounds_together? @player, current_user.player %>
-  <span id="resolve-player-link">Is this you? 
-    <%= link_to "Link this player to your account >>", "/resolve/"+@player.id.to_s, :confirm => "Are you sure? This will add the players points to yours and delete the player." %>
-  </span>
-  <% end %>
   <% if @player.user == current_user %>
   <span id="edit-profile-link"><%= link_to "Edit profile>>", edit_player_path(@player) %></span>
   <% end %>
