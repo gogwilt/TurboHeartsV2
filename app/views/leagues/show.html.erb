@@ -24,6 +24,12 @@
 </div>
 
 <div class="grid_12">
-  <h2 class="component-heading"><%= image_tag "glyphicons_040_stats.png" %>Boss table</h2>
+  <h2 class="component-heading"><%= image_tag "glyphicons_090_table.png" %>Boss table</h2>
+  <p>
+    The table below shows the winnings each player has given to the other.
+    A positive value means that the player on the left has received the given amount from 
+    the player on the top. A negative value means that the player on the left has given up
+    that amount to the player on the top.
+  </p>
   <%= render 'leagues/boss_table'%>
 </div>

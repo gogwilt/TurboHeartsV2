@@ -1,7 +1,9 @@
 <% unless current_user.nil? or @player.user or share_rounds_together? @player, current_user.player %>
 <div class="grid_12">
   <div id="resolve-player-link"><p>Is this you? 
-    <%= link_to "Link this player to your account >>", "/resolve/"+@player.id.to_s, :confirm => "Are you sure? This will add the players points to yours and delete the player." %>
+    <%= link_to "Link this player to your account >>", 
+        "/resolve/"+@player.id.to_s, 
+        :confirm => "Are you sure? This will merge your points with this player's points." %>
   </p></div>
 </div>
 <div class="clear"></div>

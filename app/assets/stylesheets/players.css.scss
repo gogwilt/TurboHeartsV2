@@ -5,17 +5,18 @@
 #search_form {
   float:right;
   margin-left:5px;
-  width:160px;
+  width:120px;
   position:relative;
-  background-image:url('search_box.png');
+  background-image:url('search_bar.png');
   background-repeat:no-repeat;    
-  height:18px;
+  height:20px;
   input#search {
     outline:none;
     position:absolute;
     top:0px;
     left:20px;
     font-size:12px;
+    width:95px;
     background:transparent;
     border:0px;
   }

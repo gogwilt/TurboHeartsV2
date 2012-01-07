@@ -50,7 +50,8 @@ img.logo {
 #right-banner-info {
   float:right;
   position:relative;
-  top:20px;
+  top:25px;
+  padding-right:10px;
 }
 
 .toolbar-button a {
@@ -92,4 +93,9 @@ div.mini-login .actions {
     margin-top:20px;
     margin-left:8px;
   }
+}
+
+.logout-link a {
+  font-size:12px;
+  padding-right:5px;
 }
