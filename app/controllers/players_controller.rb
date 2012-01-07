@@ -17,6 +17,7 @@ class PlayersController < ApplicationController
     @recent_rounds = @player.rounds.limit(10).order('created_at DESC')
     @bolded_player = @player
     @league = get_a_league_for_player @player
+    @profile_view = true
 
     respond_to do |format|
       format.html # show.html.erb
@@ -44,7 +45,7 @@ class PlayersController < ApplicationController
   # POST /players.json
   def create
     @player = Player.new(params[:player])
-
+    
     respond_to do |format|
       if @player.save
         format.html { redirect_to @player, notice: 'Player was successfully created.' }

@@ -58,7 +58,12 @@ img.logo {
   font-size:1.4em;
   margin:10px;
   text-decoration:none;
-  font-color:#322E2E;
+  color:#322E2E;
+}
+
+.toolbar-button.selected a {
+  text-decoration:underline;
+  color:#6396C6;
 }
 
 #toolbar-buttons {

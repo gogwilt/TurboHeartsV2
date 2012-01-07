@@ -8,6 +8,7 @@ class UsersController < ApplicationController
         @show_form_for_points = true
         @league = @player.leagues[0]
         @recent_rounds = @league.nil? ? [] : @league.get_rounds.sort_by{|round| round.created_at}.reverse.first(10)
+        @dashboard_view = true
         format.html # index.html.erb
       else
         format.html { redirect_to signin_path }

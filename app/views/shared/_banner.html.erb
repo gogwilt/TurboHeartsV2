@@ -5,9 +5,9 @@
   
   <div id="toolbar-buttons" class="grid_4">
   <% if signed_in? %>
-  <span class="toolbar-button" id="dashboard-toolbar-button"><%= link_to "Dashboard", dashboard_path %></span>
-  <span class="toolbar-button" id="league-toolbar-button"><%= link_to "League", current_user.player.leagues[0] %></span>
-  <span class="toolbar-button" id="profile-toolbar-button"><%= link_to "Profile", current_user.player %></span>
+  <span class="toolbar-button <%=@dashboard_view ? "selected" : nil%>" id="dashboard-toolbar-button"><%= link_to "Dashboard", dashboard_path %></span>
+  <span class="toolbar-button <%=@league_view ? "selected" : nil%>" id="league-toolbar-button"><%= link_to "League", current_user.player.leagues[0] %></span>
+  <span class="toolbar-button <%=@profile_view ? "selected" : nil%>" id="profile-toolbar-button"><%= link_to "Profile", current_user.player %></span>
   <% end %>
   </div>
 
