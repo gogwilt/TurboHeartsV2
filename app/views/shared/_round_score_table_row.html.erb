@@ -1,5 +1,5 @@
  <tr>
-    <td>
+    <td class="round-date">
       <%= @round.created_at.strftime("%m/%d") %>
     </td>
     <% @round.points_sorted.each do |point| %>
@@ -18,4 +18,7 @@
       </div>
     </td>
     <% end %>
+    <td class="delete-round-column">
+      <%= link_to 'Delete', @round, method: :delete %>
+    </td>
   </tr>

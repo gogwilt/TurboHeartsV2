@@ -1,9 +1,9 @@
 namespace :db do
   desc "Add several players with random games between them"
   task :populate => :environment do
-    names = [ 'Jess', 'Cai', 'Ryan', 'Elliot', 'Pat' ]
+    names = [ 'Blake', 'Cai', 'Ryan', 'Elliot', 'Dan Cervelli', 'Danielle', 'Allen', 'Todd W', 'EP']
     players = names.map {|name| Player.create(:name => name)}
-    10.times do |i|
+    40.times do |i|
       round = Round.create(:created_at => Time.now - i.days)
       players.sample(4).each do |player|
         point = Point.new

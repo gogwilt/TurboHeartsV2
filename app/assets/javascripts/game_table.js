@@ -1,14 +1,17 @@
 function show_add_round() {
   $("tr.score-entry").toggleClass('score-entry-hidden');
+  $("td.delete-round-column").toggleClass('delete-round-hidden');
+  $("td.round-date").toggleClass('delete-round-hidden');
   if ($("tr.score-entry").hasClass('score-entry-hidden')) {
-    $("#add-a-game-link").text("Add a Game");
+    $("#add-a-game-link").text("Add/Edit a Game");
   } else {
-    $("#add-a-game-link").text("Hide Add a Game");
+    $("#add-a-game-link").text("Hide Add/Edit a Game");
   }
 }
 
 function hide_add_round() {
   $("tr.score-entry").addClass('score-entry-hidden');
+  $("td.delete-round-column").addClass('delete-round-hidden');
 }
 
 function open_player_autocomplete(i) {

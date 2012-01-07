@@ -3,13 +3,14 @@
 <table class="game-score gray-shiny">
   <% if @show_form_for_points %>
   <tr class = "score-entry">
+    <td class="round-date"/>
     <%= form_tag( '/new_round', :method => "post", :remote => true ) do %>
-      <td> <%= submit_tag "Add" %> </td>
       <% (1..4).each do |i| %>
         <td> <%= text_field_tag "player#{i}_name".to_sym, "", {:class => 'player-autocomplete player-name'}%> 
         <%= link_to image_tag("grey-down-arrow.png"), "javascript:open_player_autocomplete(#{i});", {:id => "player#{i}_dropdown"} %>: 
       <%= text_field_tag "player#{i}_score".to_sym, "", {:class => 'player-score'} %> pts</td>
       <% end %>
+      <td> <%= submit_tag "Add" %> </td>
   <% end %>
   </tr>
   <% end %>

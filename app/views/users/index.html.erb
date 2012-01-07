@@ -1,7 +1,8 @@
-<div class="grid_6">
+<div class="grid_8">
   <p id="notice"><%= notice %></p>
   <h1 id="user-name">Welcome back, <%= @user.name %></h1>
   <span id="view-profile-link"><%= link_to "View my profile >>", @user.player %></span>
+  <% if @user.player.leagues[0].get_players.size > 1 %>
   <p id="league-standings-summary">You are currently in 
     <span class="special-green">
       <%= (@user.player.leagues[0].standing_of(@user.player)+1).ordinalize %> place
@@ -12,6 +13,7 @@
     </span> 
     in your league!
   </p>
+  <% end %>
 </div>
 
 <div class="clear"></div>
@@ -31,6 +33,7 @@
 
 <div class="clear"></div>
 
+<% if @user.player.leagues[0].get_players.size > 1 %>
 <div class="grid_6">
   <h2 class="component-heading"><%= image_tag "glyphicons_289_podium.png" %>League standings</h2>
   <%= render 'leagues/league_standings'%>
@@ -40,3 +43,4 @@
   <h2 class="component-heading"><%= image_tag "glyphicons_040_stats.png" %>Winnings chart</h2>
   <%= render 'leagues/winnings_graph'%>
 </div>
+<% end %>

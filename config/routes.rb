@@ -1,4 +1,6 @@
 Turbohearts::Application.routes.draw do
+  resources :rounds, :only => [:destroy]
+  
   resources :leagues
 
   get "sessions/new"
