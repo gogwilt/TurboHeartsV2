@@ -1,22 +1,31 @@
 function show_add_round() {
   $("tr.score-entry").toggleClass('score-entry-hidden');
-  $("td.delete-round-column").toggleClass('delete-round-hidden');
-  $("td.round-date").toggleClass('delete-round-hidden');
   if ($("tr.score-entry").hasClass('score-entry-hidden')) {
+    $("td.delete-round-column").addClass('delete-round-hidden');
+    $("td.round-date").removeClass('delete-round-hidden');
     $("#add-a-game-link").text("Add/Edit a Game");
   } else {
+    $("td.delete-round-column").removeClass('delete-round-hidden');
+    $("td.round-date").addClass('delete-round-hidden');
     $("#add-a-game-link").text("Hide Add/Edit a Game");
   }
 }
 
 function hide_add_round() {
+  $("td.round-date").removeClass('delete-round-hidden');
   $("tr.score-entry").addClass('score-entry-hidden');
   $("td.delete-round-column").addClass('delete-round-hidden');
+  $("#add-a-game-link").text("Add/Edit a Game");
+}
+
+function clear_point_fields() {
+  for(var i = 1; i <= 4; i++) {
+    $("#player" + i + "_score").value = "";
+  }
 }
 
 function open_player_autocomplete(i) {
   input = $( "#player" + i + "_name" );
-  console.log("fired");
   // close if already visible
 	if ( input.autocomplete( "widget" ).is( ":visible" ) ) {
 			input.autocomplete( "close" );

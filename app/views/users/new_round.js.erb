@@ -4,5 +4,7 @@ var row = $("<%= escape_javascript render('shared/round_score_table_row') %>");
 $("tr.score-entry").after(
   row
 );
+hide_add_round();
+clear_point_fields();
 row.hide();
 row.show(1000);
