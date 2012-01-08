@@ -20,8 +20,8 @@ end
 
 group :production do
   # Gems specifically for heroku go here
-  gem 'pg'
 end
+  gem 'pg'
 
 gem 'jquery-rails'
 
