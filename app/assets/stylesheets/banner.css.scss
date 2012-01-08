@@ -72,18 +72,17 @@ img.logo {
   top:20px;
 }
 
-div.mini-login .sign-in-form {
-  float:left;
-  padding:0px;
-
-  * {
-    float:left;
-    padding:4px;
-    margin:0px;
+.mini-login {
+  input[type~='text'], input[type~='password'] {
+     width:150px;
+     font-size:12px;
   }
-
-  dd * {
-    width:100px;
+  
+  .actions {
+    display:inline;
+    input {
+      font-size:12px;
+    }
   }
 }
 
