@@ -56,6 +56,11 @@ class UsersController < ApplicationController
       point.save    
     end
     
+    round.points.each do |point|
+      point.calculate_dollar_value
+      point.save
+    end
+    
     @bolded_player = current_user.player
     @round = round
     

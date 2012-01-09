@@ -1,5 +1,5 @@
 class Point < ActiveRecord::Base
-  attr_accessible :round, :player
+  attr_accessible :round, :player, :dollar_value
   
   belongs_to :round
   belongs_to :player
@@ -8,8 +8,8 @@ class Point < ActiveRecord::Base
   validates_presence_of :round
   validates_presence_of :value
   
-  def dollar_value
+  def calculate_dollar_value
     total_points = self.round.points.inject(0) {|cumulative, point| cumulative + point.value}
-    total_points - self.value * 4
+    self.dollar_value = total_points - self.value * 4
   end
 end
