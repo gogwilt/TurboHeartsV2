@@ -7,7 +7,9 @@ class Player < ActiveRecord::Base
   
   has_and_belongs_to_many :leagues
   
-  validates :name, :presence => true, :uniqueness => :true
+  validates :name, :presence => true, 
+                   :uniqueness => :true,
+                   :length => {:minimum => 3, :maximum => 254}
   
   def self.search(search)
     if search

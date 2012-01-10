@@ -6,7 +6,10 @@ class User < ActiveRecord::Base
   
   validates :password, :presence => true,
                        :confirmation => true
-  validates :email, :presence => true, :uniqueness => true
+  validates :email, :presence => true, 
+                    :length => {:minimum => 3, :maximum => 254},
+                    :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i},
+                    :uniqueness => true
   validates_presence_of :player
   
   before_save :encrypt_password
