@@ -11,7 +11,8 @@ class Player < ActiveRecord::Base
   
   def self.search(search)
     if search
-      return Player.find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+      user_players = User.find(:all, :conditions => ['email LIKE ?', "%#{search}%"]).map {|user| user.player}
+      return Player.find(:all, :conditions => ['name LIKE ?', "%#{search}%"]) | user_players
     else
       return Player.all
     end
