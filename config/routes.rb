@@ -1,4 +1,8 @@
 Turbohearts::Application.routes.draw do
+  get "pages/home", :as => 'home'
+
+  get "pages/learn_turbohearts", :as => 'learn'
+
   resources :rounds, :only => [:destroy]
   
   resources :leagues

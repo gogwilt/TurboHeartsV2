@@ -1,0 +1,48 @@
+<div id = "home-banner">
+  <div class = "grid_3 suffix_5" id="home-logo">
+    <%= image_tag 'logo.png' %>
+  </div>
+  <div class = "grid_4">
+    <div id="home-signin">
+    <p>Already have an account? <%= link_to "Sign in", signin_path %></p>
+    </div>
+  </div>
+
+  <div class = "clear"></div>
+
+  <div class = "prefix_5 grid_7" id="introduction-message">
+    <p id="home-introducing-the">Introducing the</p>
+    <h1 id="home-turbohearts-tracker">Turbo hearts tracker</h1>
+    <p>It's what you've always wanted: a place to track all your turbo hearts
+      games and keep tabs on how your friends are playing.</p>
+    <div class ="grid_3 alpha" id="home-ready-to-start">
+      <p>Ready to get started?</p>
+    </div>
+    <div class = "grid_4 omega">
+      <%= link_to "Create an account", signup_path, {:class => "sign-up-button"}%>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="grid_4" id="home-learn-turbohearts">
+  <div class="grid_1 alpha">
+    <%= image_tag "home_cards.png" %>
+  </div>
+  <div class="grid_3 omega">
+    <p><span class="turbohearts-name tk-league-gothic">TURBO HEARTS</span> is a card game based on
+      the classic game "Hearts," with a few new mechanics to make it more competitive
+      than ever.</p>
+    <p><%= link_to "Learn More", learn_path %></p>
+  </div>
+</div>
+<div class = "grid_4">
+  <%= image_tag "home_screenshot.png" %>
+</div>
+<div class = "grid_4" id="home-features">
+  <h2>What will I get with turbohearts tracker?</h2>
+  <div class="grid_1 alpha"><%= image_tag "home_stats.png"%></div><div class="grid_3 omega"><p>Game statistics</p></div>
+  <div class="clear"></div>
+  <div class="grid_1 alpha"><%= image_tag "home_friends.png"%></div><div class="grid_3 omega"><p>Play with Friends</p></div>
+  <div class="clear"></div>
+  <div class="grid_1 alpha"><%= image_tag "home_awards.png"%></div><div class="grid_3 omega"><p>Win Awards</p></div>
+</div>

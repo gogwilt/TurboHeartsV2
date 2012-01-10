@@ -15,15 +15,15 @@
   <script type="text/javascript" src="http://use.typekit.com/cfk8myz.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
-<body>
+<body <%= 'class = "no-banner"'.html_safe if @do_not_show_banner %>>
 
-<% unless @do_not_show_sign_in_info %>
+<% unless @do_not_show_banner %>
 <header id = "banner">
   <%= render 'shared/banner' %>
 </header>
 <% end %>
 
-<section id="content" class="container_12">
+<section id="content" class="container_12 <%= "no-banner" if @do_not_show_banner %>">
 <%= yield %>
 <div class="clear"></div>
 <div id="spacer-div" class="grid_12"></div>

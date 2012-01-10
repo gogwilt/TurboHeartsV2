@@ -16,7 +16,9 @@
     <%= render 'players/search_form' %>
     <span class="logout-link"><%= link_to "Logout", signout_path, :method => :delete %></span>
   <% else %>
+    <% unless @do_not_show_sign_in_info %>
     <span class = "mini-login"> <%= render 'sessions/sign_in_form' %> </span>
+    <% end %>
   <% end %>
   </div>  
 </div>

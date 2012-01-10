@@ -1,0 +1,105 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.no-banner {
+  background-image:url('home_banner.png');
+  background-repeat:no-repeat;
+  background-position:center top;
+}
+
+#home-banner {
+  padding-top:15px;
+  height:403px;
+  margin-bottom:10px;
+  width:100%;
+}
+
+#home-signin {
+  color:#B8DAF2;
+  background-color:rgba(.6, .6, .6, .4);
+  text-align:center;
+  float:right;
+
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+
+  * {
+    padding:0px;
+    margin:5px;
+  }
+
+  a {
+    color:#70C8FF;
+  }
+}
+
+#introduction-message {
+  margin-top:50px;
+  margin-bottom:40px;
+  p {
+    font-size:18px;
+    margin:0px;
+  }
+  #home-introducing-the {
+    color:#4188B5;
+    font-style:italic;
+  }
+  #home-turbohearts-tracker {
+    margin:0px;
+    font-size:60px;
+  }
+  
+  #home-ready-to-start {
+    padding-top:70px;
+    p {
+      margin-left:30px;
+    }
+  }
+  
+  .sign-up-button {
+    margin-top:55px;
+    background-image:url('create_an_account.png');
+    display:block;
+    width:212px;
+    height:52px;
+    color:rgba(0, 0, 0, 0);
+  }
+}
+
+#home-learn-turbohearts {
+  height:179px;
+  background-color:#F0F7FD;
+  line-height:25px;
+  text-align:justify;
+  color:#6D6D61;
+  p {
+    margin-left:-5px;
+    font-size:14px;
+    padding-right:10px;
+  }
+  .turbohearts-name {
+    font-size:130%;
+    color:#322E2E;
+  }
+  a {
+    float:right;
+    display:block;
+    padding-right:10px;
+    padding-bottom:10px;
+  }
+  img {
+    padding:10px;
+  }
+}
+
+#home-features {
+  margin-top:-10px;
+  p {
+    margin-top:5px;
+    margin-left:-30px;
+  }
+}
+
