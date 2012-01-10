@@ -28,16 +28,16 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    player = Player.new(params[:player])
+    player = Player.new(:name => /\A[^@]*/.match(params[:user][:email])[0])
     @user.player = player
 
     respond_to do |format|
-      if @user.save
-        player.save
+      if @user.save and player.save
         create_default_league_for_player player
         sign_in @user
         format.html { redirect_to dashboard_path, notice: 'Player was successfully created.' }
       else
+        player.destroy
         format.html { render action: "new" }
       end
     end

@@ -6,8 +6,7 @@ class User < ActiveRecord::Base
   
   validates :password, :presence => true,
                        :confirmation => true
-  validates_presence_of :name
-  validates_presence_of :email
+  validates :email, :presence => true, :uniqueness => true
   validates_presence_of :player
   
   before_save :encrypt_password
