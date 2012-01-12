@@ -13,10 +13,12 @@ namespace :db do
         point.value = rand(80) - 40
         point.save
       end
-    
-      round.points.each do |point|
-        point.calculate_dollar_value
-        point.save
+    end
+    Point.all.each do |point|
+      point.calculate_dollar_value
+      point.save
+      if point.errors.count > 0
+        puts point.errors.full_messages
       end
     end
     user = User.new(:email => 'gogwilt@gmail.com', :password => 'pass', :password_confirmation => 'pass')

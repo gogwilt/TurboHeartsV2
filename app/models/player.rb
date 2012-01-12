@@ -9,7 +9,7 @@ class Player < ActiveRecord::Base
   
   validates :name, :presence => true, 
                    :uniqueness => :true,
-                   :length => {:minimum => 3, :maximum => 254}
+                   :length => {:minimum => 1, :maximum => 254}
   
   def self.search(search)
     if search
