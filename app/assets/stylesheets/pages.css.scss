@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body.no-banner {
-  background-image:url('home_banner.png');
-  background-repeat:no-repeat;
+  background-image:url('background-gradient-spiral.png'), url('background-backing.png');
+  background-repeat:no-repeat, repeat-x;
   background-position:center top;
 }
 
@@ -13,6 +13,10 @@ body.no-banner {
   height:403px;
   margin-bottom:10px;
   width:100%;
+}
+
+#turbohearts-logo-big img {
+  margin-top:40px;
 }
 
 #home-signin {
@@ -61,7 +65,7 @@ body.no-banner {
   
   .sign-up-button {
     margin-top:55px;
-    background-image:url('create_an_account.png');
+    background-image:url('button-get-started.png');
     display:block;
     width:212px;
     height:52px;

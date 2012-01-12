@@ -31,7 +31,7 @@
 <div class="clear"></div>
 
 <div class="grid_12">
-  <h2 class="component-heading"><%= image_tag "glyphicons_032_wifi_alt.png" %><%= @player.name %>'s recent games</h2>
+  <h2 class="component-heading"><%= image_tag "glyphicons_032_wifi_alt.png", :class => "glyphicon-image" %><%= @player.name %>'s recent games</h2>
   <% if @recent_rounds.empty? %>
   <p><%= @player.name %> has no games.</p>
   <% else %>
@@ -43,12 +43,12 @@
 
 <% unless @league.nil?%>
 <div class="grid_6">
-  <h2 class="component-heading"><%= image_tag "glyphicons_289_podium.png" %>League standings</h2>
+  <h2 class="component-heading"><%= image_tag "glyphicons_289_podium.png", :class => "glyphicon-image" %>League standings</h2>
   <%= render 'leagues/league_standings'%>
 </div>
 
 <div class="grid_6">
-  <h2 class="component-heading"><%= image_tag "glyphicons_040_stats.png" %>Winnings chart</h2>
+  <h2 class="component-heading"><%= image_tag "glyphicons_040_stats.png", :class => "glyphicon-image" %>Winnings chart</h2>
   <%= render 'leagues/winnings_graph'%>
 </div>
 <% end %>

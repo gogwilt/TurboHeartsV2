@@ -26,7 +26,7 @@
   <div id="add-round-button"><%=  %>
     <%= link_to((image_tag("green-plus.png") + "<span id='add-a-game-link'>Add a Game</span>".html_safe), "javascript:show_add_round()") %>
   </div>
-  <h2 class="component-heading"><%= image_tag "glyphicons_032_wifi_alt.png" %>Recent games in your league</h2>
+  <h2 class="component-heading"><%= image_tag "glyphicons_032_wifi_alt.png", :class => "glyphicon-image" %>Recent games in your league</h2>
   <%= render 'shared/game_score_table' %>
   <% if @recent_rounds.empty? %>
   <p>You have no recent rounds to display. Get started by clicking the "Add a Game" link, 
@@ -39,12 +39,12 @@
 
 <% if @user.player.leagues[0].get_players.size > 1 %>
 <div class="grid_6">
-  <h2 class="component-heading"><%= image_tag "glyphicons_289_podium.png" %>League standings</h2>
+  <h2 class="component-heading"><%= image_tag "glyphicons_289_podium.png", :class => "glyphicon-image" %>League standings</h2>
   <%= render 'leagues/league_standings'%>
 </div>
 
 <div class="grid_6">
-  <h2 class="component-heading"><%= image_tag "glyphicons_040_stats.png" %>Winnings chart</h2>
+  <h2 class="component-heading"><%= image_tag "glyphicons_040_stats.png", :class => "glyphicon-image" %>Winnings chart</h2>
   <%= render 'leagues/winnings_graph'%>
 </div>
 <% end %>
